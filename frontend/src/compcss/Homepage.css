@@ -1,0 +1,13 @@
+.Homepage {
+    background-image: linear-gradient(
+        rgba(74, 134, 247, 0.7),
+        rgba(199, 220, 247, 0.7)
+    ),
+    url("../images/homepage.png") !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-attachment: fixed;
+
+}

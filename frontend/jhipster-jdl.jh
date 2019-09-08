@@ -1,0 +1,43 @@
+entity UserInfo {
+	phoneNumber String
+}
+
+entity ChatGroup {
+	groupName String,
+    isPrivate Boolean
+}
+
+  entity Notification {
+  notificationMessage String,
+  createdAt Instant
+  }
+
+entity Message {
+  messageText String,
+  createdAt Instant
+}
+relationship ManyToOne {
+	Message{notificationId} to Notification{messageId},
+	ChatGroup{ownerId} to User,
+    Message{userId} to User{messages}
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	UserInfo{userId} to User
+}
+
+relationship ManyToMany {
+	ChatGroup{userId} to User{groups}
+}
+
+relationship OneToMany {
+	ChatGroup{messages} to Message{chatGroupId}
+}
+
+dto * with mapstruct
+service * with serviceImpl
+
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
